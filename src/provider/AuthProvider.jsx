@@ -25,12 +25,19 @@ const AuthProvider = ({children}) => {
        return createUserWithEmailAndPassword(auth,email,password)
       }
 
+    //   signin user with email and password
+      const signInUser = (email,password) =>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth,email,password)
+      }
+
 
     const authInfo = {
         user,
         loading,
         handleGoogleLogin,
-        signUp
+        signUp,
+        signInUser
     } 
   return (
     <AuthContext.Provider value={authInfo}>
