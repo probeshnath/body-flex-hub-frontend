@@ -42,8 +42,8 @@ const Carusal = () => {
         <SwiperSlide className='relative text-black'>
             <img className='w-full h-full object-cover ' src="https://i.ibb.co/CM9hFf5/img-4.webp" alt="" />
             <div className='absolute px-10 flex flex-col md:w-2/5 justify-center h-full top-0 text-right right-0'>
-                <h2  className='text-4xl font-bold mb-3'>Elevate Your Fitness Journey at <span  className='text-orange-800'>BodyFlex Hub</span></h2>
-                <p className='font-bold text-gray-500'>Empower your body, elevate your spirit. Join us at BodyFlex Hub for a fitness experience like no other. Unleash the strength within!</p>
+                <h2  className='text-4xl font-bold mb-3'>Unleash Your Strength and Transform at <span  className='text-orange-800'>BodyFlex Hub</span></h2>
+                <p className='font-bold text-gray-500'>Transform your fitness journey with BodyFlex Hub. Our state-of-the-art facility and expert trainers are here to guide you towards a healthier, stronger you. Your goals, our passion!</p>
                <Link to="/class"> <button className='text-left my-2 bg-orange-400 w-fit py-1 font-medium rounded-md hover:bg-black hover:text-white transition-opacity px-4'> All Class </button></Link>
             </div>
         </SwiperSlide>
@@ -51,8 +51,8 @@ const Carusal = () => {
         <SwiperSlide className='relative text-white'>
             <img className='w-full h-full object-cover' src="https://i.ibb.co/rF6mqGL/premium-photo-1663036263525-3059e0c47b96-q-80-w-1492-auto-format-fit-crop-ixlib-rb-4-0.jpg" alt="" />
             <div className='absolute px-10 flex flex-col w-full justify-center h-full bg-black opacity-70 top-0 left-0'>
-                <h2  className='text-4xl font-bold mb-3 md:w-2/5'>Elevate Your Fitness Journey at <span  className='text-orange-300'>BodyFlex Hub</span></h2>
-                <p className='font-bold text-gray-300 md:w-2/5'>Empower your body, elevate your spirit. Join us at BodyFlex Hub for a fitness experience like no other. Unleash the strength within!</p>
+                <h2  className='text-4xl font-bold mb-3 md:w-2/5'>Discover a New Level of Wellness at <span  className='text-orange-300'>BodyFlex Hub</span></h2>
+                <p className='font-bold text-gray-300 md:w-2/5'>At BodyFlex Hub for we blend cutting-edge workouts with a supportive community. Step into a world where every drop of sweat brings you closer to your best self. It's not just a gym; it's a lifestyle.</p>
                <Link to="/class"> <button className='text-left my-2 bg-orange-400 w-fit py-1 font-medium rounded-md hover:bg-black transition-opacity px-4'> All Class </button></Link>
             </div>
         </SwiperSlide>

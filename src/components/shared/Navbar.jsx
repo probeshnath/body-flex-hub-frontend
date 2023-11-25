@@ -18,7 +18,7 @@ const Navbar = () => {
                                 <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" />
                             </div>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] px-2 py-4 shadow bg-base-100 rounded-box w-52 md:w-72">
+                        <ul tabIndex={0} className="menu menu-sm z-50 dropdown-content mt-3 z-[1] px-2 py-4 shadow bg-base-100 rounded-box w-52 md:w-72">
                             <div className='pb-4'>
                                 <img src="https://i.ibb.co/CM9hFf5/img-4.webp" alt="cover pic" />
                                 <div className='-mt-5 text-center'>
