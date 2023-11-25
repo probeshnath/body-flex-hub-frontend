@@ -2,13 +2,26 @@ import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import SocialLogin from '../../components/shared/SocialLogin'
+import useAuth from '../../hooks/useAuth'
+
+
 
 const SignUp = () => {
     const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
 
+    const {signUp} = useAuth();
+    // console.log("my name is ",name)
+
     //  submit form
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
+        signUp(data.email, data.password)
+        .then(res =>{
+            console.log(res.user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     }
     return (
         <div>
