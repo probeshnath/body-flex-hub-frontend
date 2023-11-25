@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
+import { FaBars } from "react-icons/fa6";
 
 const Navbar = () => {
+    const {logoutUser,user} = useAuth();
     return (
         <div className='bg-gray-500'>
             <div className="navbar max-w-7xl py-3 mx-auto ">
@@ -13,9 +16,10 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <label tabIndex={0} className="">
                             <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" />
+                               {user ? <img className='rounded-full cursor-pointer' alt="Tailwind CSS Navbar component" src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" /> : 
+                               <FaBars className='text-orange-600 cursor-pointer text-2xl' />} 
                             </div>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm z-50 dropdown-content mt-3 px-2 py-4 shadow bg-base-100 rounded-box w-52 md:w-72">
@@ -37,7 +41,7 @@ const Navbar = () => {
                             <li><NavLink to="/forums" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Forums </NavLink></li>
                             <li><NavLink to="/signIn" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Sign In </NavLink></li>
                             <li><NavLink to="/signUp" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Sign Up </NavLink></li>
-                            <li><button> Logout </button></li>
+                            <li><button onClick={logoutUser}> Logout </button></li>
                         </ul>
                     </div>
                 </div>

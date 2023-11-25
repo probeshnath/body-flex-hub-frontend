@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../assets/google.png'
 import useAuth from '../../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const SocialLogin = () => {
 
@@ -12,6 +13,7 @@ const SocialLogin = () => {
     handleGoogleLogin()
     .then((data) => {
       console.log(data.user)
+      toast.success("Login Successfully !!")
       navigate(location?.state ? location?.state : "/")
     })
     .catch((error)=>{

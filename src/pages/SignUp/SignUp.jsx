@@ -3,25 +3,44 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import SocialLogin from '../../components/shared/SocialLogin'
 import useAuth from '../../hooks/useAuth'
+import { toast } from 'react-toastify'
+import { imageUpload } from '../../api/uploadImage'
 
 
 
 const SignUp = () => {
     const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
 
-    const {signUp} = useAuth();
+    const {signUp,updateUserProfile} = useAuth();
     // console.log("my name is ",name)
 
     //  submit form
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         // console.log(data)
-        signUp(data.email, data.password)
-        .then(res =>{
-            console.log(res.user)
-        })
-        .catch(error =>{
+
+        try {
+            // console.log(data)
+
+            // 1. image host
+            const imageData = await imageUpload(data.photo[0])
+            // console.log(imageData)
+
+            // 2. create user
+           const result = await signUp(data.email, data.password)
+           //    console.log(result)
+
+            // 3. update user
+            await updateUserProfile(data.name, imageData?.data?.display_url)
+            toast.success("SignUp Successfully !!")
+            console.log(result)
+
+            
+
+        } catch (error) {
             console.log(error)
-        })
+        }
+
+       
     }
     return (
         <div>
@@ -61,8 +80,8 @@ const SignUp = () => {
 
                                 </div>
                                 <div className="form-control">
-                                    {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-                                    <input {...register("photoURL", { required: true })} type="file" placeholder="Photo URL" className="input input-bordered" />
+                                    {errors.photoURL && <span className="text-red-600">Photo is required</span>}
+                                    <input {...register("photo", { required: true })} type="file" placeholder="Photo" className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-3">
                                     <input className="btn btn-primary" type="submit" value="Sign Up" />
