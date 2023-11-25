@@ -28,7 +28,7 @@ const Carusal = () => {
       <Swiper
         pagination={pagination}
         modules={[Pagination]}
-        className="mySwiper max-w-7xl h-[400px] mx-auto"
+        className="mySwiper max-w-7xl h-[400px] mx-auto z-10"
       >
         <SwiperSlide className='relative text-white'>
             <img className='w-full h-full object-cover md:object-top '  src="https://i.ibb.co/pzPCBgr/photo-1546817372-628669db4655-q-80-w-1471-auto-format-fit-crop-ixlib-rb-4-0.jpg" alt="" />
