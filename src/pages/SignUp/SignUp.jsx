@@ -1,15 +1,19 @@
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SocialLogin from '../../components/shared/SocialLogin'
 import useAuth from '../../hooks/useAuth'
 import { toast } from 'react-toastify'
 import { imageUpload } from '../../api/uploadImage'
+import usePublicAxios from '../../hooks/usePublicAxios'
+
 
 
 
 const SignUp = () => {
+    const axiosPublic = usePublicAxios();
     const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
+    const navigate = useNavigate()
 
     const {signUp,updateUserProfile} = useAuth();
     // console.log("my name is ",name)
@@ -32,12 +36,28 @@ const SignUp = () => {
             // 3. update user
             await updateUserProfile(data.name, imageData?.data?.display_url)
             toast.success("SignUp Successfully !!")
-            console.log(result)
+            // console.log(result)
+
+            // 4. save data in database
+            const userInfo = {
+                name : data.name,
+                email: data.email,
+                role: "member"
+            }
+            
+            axiosPublic.post("/users",userInfo)
+            .then(res =>{
+                if(res.data.insertedId){
+                    toast.success("User Information Updated !!")
+                    navigate("/")
+                }
+            })
 
             
 
         } catch (error) {
             console.log(error)
+            toast.error(error.message)
         }
 
        

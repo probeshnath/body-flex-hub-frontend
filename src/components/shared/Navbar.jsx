@@ -18,7 +18,7 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="">
                             <div className="w-10 rounded-full">
-                               {user ? <img className='rounded-full cursor-pointer' alt="Tailwind CSS Navbar component" src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" /> : 
+                               {user ? <img className='rounded-full cursor-pointer w-14 h-14' alt="Tailwind" src={user?.photoURL} /> : 
                                <FaBars className='text-orange-600 cursor-pointer text-2xl' />} 
                             </div>
                         </label>
@@ -26,9 +26,9 @@ const Navbar = () => {
                             <div className='pb-4'>
                                 <img src="https://i.ibb.co/CM9hFf5/img-4.webp" alt="cover pic" />
                                 <div className='-mt-5 text-center'>
-                                    <img className='w-[50px] md:w-[70px] md:h-[70px] h-[50px] mx-auto rounded-full' src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" alt="" />
-                                    <h3 className='text-lg font-bold text-orange-500'>User Name</h3>
-                                    <p className='font-bold text-gray-400'>user@gmail.com</p>
+                                    <img className='w-[50px] md:w-[70px] md:h-[70px] h-[50px] mx-auto rounded-full' src={user?.photoURL} alt={user?.displayName} />
+                                    <h3 className='text-lg font-bold text-orange-500'>{user?.displayName}</h3>
+                                    <p className='font-bold text-gray-400'>{user?.email}</p>
                                     <Link to="/myProfile"><button className='bg-orange-300 text-white font-bold w-full py-2 rounded-md '>My Profile</button></Link>
                                 </div>
                             </div>
