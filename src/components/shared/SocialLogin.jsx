@@ -3,18 +3,36 @@ import logo from '../../assets/google.png'
 import useAuth from '../../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import usePublicAxios from '../../hooks/usePublicAxios'
 
 const SocialLogin = () => {
 
   const navigate = useNavigate()
   const {handleGoogleLogin} = useAuth()
+  const PublicAxios = usePublicAxios();
 
   const googleLogin = () =>{
     handleGoogleLogin()
     .then((data) => {
       console.log(data.user)
-      toast.success("Login Successfully !!")
-      navigate(location?.state ? location?.state : "/")
+
+      // 4. save data in database
+      const userInfo = {
+        name : data?.user?.displayName,
+        email: data?.user?.email,
+        role: "member"
+    }
+    
+    PublicAxios.post("/users",userInfo)
+    .then(res =>{
+        if(res.data.insertedId){
+            toast.success("User Information Updated !!")
+            navigate("/")
+            // navigate(location?.state ? location?.state : "/")
+        }
+    })
+
+
     })
     .catch((error)=>{
       console.log(error)
