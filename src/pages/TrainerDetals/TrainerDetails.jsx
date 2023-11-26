@@ -3,6 +3,7 @@ import { BiSolidBadgeCheck } from "react-icons/bi";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TrainerSlot from "../../components/TrainerDetails/TrainerSlot";
+import { Link } from "react-router-dom";
 
 
 const TrainerDetails = () => {
@@ -47,7 +48,7 @@ const TrainerDetails = () => {
 
         {/* be a trainer page */}
         <div className="flex justify-center">
-          <button className="bg-orange-500 py-1 px-5 text-white font-bold mb-4">Be a Trainer Page</button>
+         <Link to="/beTrainer"> <button className="bg-orange-500 py-1 px-5 text-white font-bold mb-4 rounded-md">Be a Trainer Page</button></Link>
         </div>
       </div>
     </div>
