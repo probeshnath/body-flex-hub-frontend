@@ -38,7 +38,7 @@ const Navbar = () => {
 
                             <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Home </NavLink></li>
                             <li><NavLink to="/gallery" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Gallery </NavLink></li>
-                            <li><NavLink to="/trainer" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Trainer </NavLink></li>
+                            <li><NavLink to="/trainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Trainers </NavLink></li>
                             <li><NavLink to="/classes" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Classes </NavLink></li>
                             <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
                             <li><NavLink to="/forums" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Forums </NavLink></li>
