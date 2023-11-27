@@ -11,7 +11,7 @@ const AddNewForum = () => {
   const publicAxios = usePublicAxios()
   let date = new Date();
   let currentTime = `${date.getDate()}/ ${date.getMonth()}/ ${date.getFullYear()} `
-  console.log(currentTime)
+  // console.log(currentTime)
 
 
   const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
