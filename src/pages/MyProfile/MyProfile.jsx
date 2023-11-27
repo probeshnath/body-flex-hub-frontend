@@ -6,13 +6,12 @@ import TrainerSlot from "../../components/TrainerDetails/TrainerSlot";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-
-const TrainerDetails = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+const MyProfile = () => {
+    const [tabIndex, setTabIndex] = useState(0);
   return (
     <div className="bg-slate-300">
       <Helmet>
-        <title>BodyFlex Hub || Trainer Details Page</title>
+        <title>BodyFlex Hub || My Profile Page</title>
       </Helmet>
       <div className="max-w-7xl  mx-auto">
         {/* header */}
@@ -60,4 +59,4 @@ const TrainerDetails = () => {
   )
 }
 
-export default TrainerDetails
+export default MyProfile

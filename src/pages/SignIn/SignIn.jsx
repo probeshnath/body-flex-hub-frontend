@@ -24,9 +24,9 @@ const SignIn = () => {
   }
   return (
     <div>
-      {/* <Helmet>
-                <title>Teasty Treat | Register Page</title>
-            </Helmet> */}
+     <Helmet>
+        <title>BodyFlex Hub || SignIn Page</title>
+      </Helmet>
       <div className="h-screen  bg-base-200">
         <div className="px-3">
           <div className=" lg:flex items-center w-full h-screen py-8 flex-col lg:flex-row  shadow-2xl bg-base-100">

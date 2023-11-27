@@ -23,6 +23,7 @@ import AddNewClass from "../pages/Dasboard/AddNewClass/AddNewClass";
 import ActivityLog from "../pages/Dasboard/ActivityLog/ActivityLog";
 import ProfileSettings from "../pages/Dasboard/ProfileSettings/ProfileSettings";
 import RecommendedClasses from "../pages/Dasboard/RecommendedClasses/RecommendedClasses";
+import MyProfile from "../pages/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: "forums",
                 element: <Forums />
+            },
+            {
+                path: "myProfile",
+                element: <MyProfile />
             }
         ]
     },

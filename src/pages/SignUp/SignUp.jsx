@@ -64,9 +64,9 @@ const SignUp = () => {
     }
     return (
         <div>
-            {/* <Helmet>
-                <title>Teasty Treat | Register Page</title>
-            </Helmet> */}
+            <Helmet>
+        <title>BodyFlex Hub || Sign Up Page</title>
+      </Helmet>
             <div className="h-screen  bg-base-200">
                 <div className="px-3">
                     <div className=" lg:flex w-full h-screen py-8 flex-col lg:flex-row  shadow-2xl bg-base-100">

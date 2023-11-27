@@ -3,28 +3,29 @@ import TitleSection from '../../components/shared/TitleSection'
 import useAuth from '../../hooks/useAuth'
 import usePublicAxios from '../../hooks/usePublicAxios'
 import { toast } from 'react-toastify'
+import { Helmet } from 'react-helmet-async'
 
 const BeTrainer = () => {
-    const [skills,setSkills] = useState([])
-    const {user} = useAuth()
+    const [skills, setSkills] = useState([])
+    const { user } = useAuth()
     const publicAxios = usePublicAxios()
     // console.log(user)
-//  get multiple skills
-    function handleSkill(event){
-        const { value, checked} = event.target;
+    //  get multiple skills
+    function handleSkill(event) {
+        const { value, checked } = event.target;
 
-        if(checked){
+        if (checked) {
             setSkills(pre => [...pre, value])
-        }else{
+        } else {
             setSkills(pre => {
-                return [ ...pre.filter(skill => skill !== value)]
+                return [...pre.filter(skill => skill !== value)]
             })
         }
 
     }
     // console.log(skills)
 
-    const handleApplied = (e) =>{
+    const handleApplied = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
@@ -48,20 +49,23 @@ const BeTrainer = () => {
         // console.log(appliedUser)
 
         // send backend to applied
-        publicAxios.patch(`/beTrainer/${user.email}`,appliedUser)
-        .then(res =>{
-            console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                toast.success("Request Submitted")
-            }
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+        publicAxios.patch(`/beTrainer/${user.email}`, appliedUser)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    toast.success("Request Submitted")
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
         <div className='py-10'>
+            <Helmet>
+                <title>BodyFlex Hub || Be Traiber Page</title>
+            </Helmet>
             <div className='max-w-7xl mx-auto'>
                 <TitleSection title={"Become A Trainer"} description={"To became profetional, come to here"} />
                 {/*  */}
@@ -99,22 +103,22 @@ const BeTrainer = () => {
 
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Adaptability" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
-                            <span  className="label-text w-full text-left">Adaptability</span>
+                            <span className="label-text w-full text-left">Adaptability</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" value="Exercide Physiology" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <input type="checkbox" value="Exercide Physiology" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
                             <span className="label-text w-full text-left">Exercide Physiology</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" value="Injury Prevention Knowledge" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <input type="checkbox" value="Injury Prevention Knowledge" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
                             <span className="label-text w-full text-left">Injury Prevention Knowledge</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" value="Time Management" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <input type="checkbox" value="Time Management" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
                             <span className="label-text w-full text-left">Time Management</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" value="Patience" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <input type="checkbox" value="Patience" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
                             <span className="label-text w-full text-left">Patience</span>
                         </label>
                     </div>
