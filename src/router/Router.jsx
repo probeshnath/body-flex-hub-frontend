@@ -13,6 +13,7 @@ import ClassesPage from "../pages/Classes/ClassesPage";
 import Forums from "../pages/Forums/Forums";
 import DashboardLayout from "../Layout/DashboardLayout";
 import MainDashboard from "../pages/Dasboard/MainDashboard";
+import AllSubscribers from "../pages/Dasboard/AllSubscribers/AllSubscribers";
 
 const router = createBrowserRouter([
     {
@@ -63,13 +64,17 @@ const router = createBrowserRouter([
         element: <SignUp />
     },
     {
-        path:"dashboard",
+        path:"/dashboard",
         element: <DashboardLayout></DashboardLayout>,
         errorElement: <Errorpage />,
         children:[
             {
                 index: true,
                 element: <MainDashboard />
+            },
+            {
+                path:"/dashboard/allSubscribers",
+                element: <AllSubscribers />
             }
         ]
     }
