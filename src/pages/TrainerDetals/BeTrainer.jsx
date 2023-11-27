@@ -92,30 +92,30 @@ const BeTrainer = () => {
                     </div>
 
                     {/* skills */}
-                    <div className="form-control justify-start w-fit">
+                    <div className="form-control  w-fit">
                         <label className="label">
                             <span className="label-text">Your Skills</span>
                         </label>
 
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Adaptability" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Adaptability</span>
+                            <span  className="label-text w-full text-left">Adaptability</span>
                         </label>
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Exercide Physiology" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Exercide Physiology</span>
+                            <span className="label-text w-full text-left">Exercide Physiology</span>
                         </label>
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Injury Prevention Knowledge" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Injury Prevention Knowledge</span>
+                            <span className="label-text w-full text-left">Injury Prevention Knowledge</span>
                         </label>
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Time Management" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Time Management</span>
+                            <span className="label-text w-full text-left">Time Management</span>
                         </label>
                         <label className="cursor-pointer label">
                             <input type="checkbox" value="Patience" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Patience</span>
+                            <span className="label-text w-full text-left">Patience</span>
                         </label>
                     </div>
 

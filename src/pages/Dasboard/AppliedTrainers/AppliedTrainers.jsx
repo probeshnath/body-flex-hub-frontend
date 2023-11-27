@@ -1,81 +1,104 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Title from '../../../components/shared/BgTitle'
+import usePublicAxios from '../../../hooks/usePublicAxios'
+import { FaRegEye } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 const AppliedTrainers = () => {
-  return (
-    <div>
-        <Title>Applied Trainers</Title>
-        <div className="overflow-x-auto">
+    const publicAxios = usePublicAxios();
+    const [applied, setApplied] = useState(null)
+
+
+    // accept or reject
+    const appliedHandler = (user) => {
+        // sweet aleart
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                publicAxios.put(`/addTrainer/${user.email}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.modifiedCount > 0) {
+                              Swal.fire({
+                                title: `${user.name} has been added as a Trainer`,
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                              });
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+
+            }
+            if (result.isDismissed) {
+                console.log("normal user")
+            }
+            console.log(result)
+        });
+    }
+
+    useEffect(() => {
+        publicAxios.get("/appliedTrainers")
+            .then(res => {
+                // console.log(res.data)
+                setApplied(res.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }, [appliedHandler])
+
+
+
+
+    return (
+        <div>
+            <Title>Applied Trainers</Title>
+            <div className="overflow-x-auto">
                 <table className="table table-xs">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>#</th>
+                            <th>Image</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>available_day</th>
+                            <th>available_week</th>
+                            <th>Detail/ Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Littel, Schaden and Vandervort</td>
-                            <td>Canada</td>
-                            <td>12/16/2020</td>
-                            <td>Blue</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Zemlak, Daniel and Leannon</td>
-                            <td>United States</td>
-                            <td>12/5/2020</td>
-                            <td>Purple</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Carroll Group</td>
-                            <td>China</td>
-                            <td>8/15/2020</td>
-                            <td>Red</td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Marjy Ferencz</td>
-                            <td>Office Assistant I</td>
-                            <td>Rowe-Schoen</td>
-                            <td>Russia</td>
-                            <td>3/25/2021</td>
-                            <td>Crimson</td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Yancy Tear</td>
-                            <td>Community Outreach Specialist</td>
-                            <td>Wyman-Ledner</td>
-                            <td>Brazil</td>
-                            <td>5/22/2020</td>
-                            <td>Indigo</td>
-                        </tr>
-                       
-                       
-                        
-                        
-                       
-                       
+                        {
+                            applied?.map((user, inx) => (
+                                <tr>
+                                    <th>{inx + 1}</th>
+                                    <th><img className='w-8 h-8' src={user.img} alt="" /></th>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.age}</td>
+                                    <td>{user.available_day}</td>
+                                    <td>{user.available_week}</td>
+                                    <td onClick={() => appliedHandler(user)}><FaRegEye className='text-lg text-orange-600 cursor-pointer' /></td>
+                                </tr>
+                            ))
+                        }
+
+
                     </tbody>
-                    
+
                 </table>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default AppliedTrainers
