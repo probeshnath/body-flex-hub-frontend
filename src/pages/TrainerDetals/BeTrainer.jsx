@@ -1,63 +1,121 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TitleSection from '../../components/shared/TitleSection'
+import useAuth from '../../hooks/useAuth'
+import usePublicAxios from '../../hooks/usePublicAxios'
+import { toast } from 'react-toastify'
 
 const BeTrainer = () => {
+    const [skills,setSkills] = useState([])
+    const {user} = useAuth()
+    const publicAxios = usePublicAxios()
+    // console.log(user)
+//  get multiple skills
+    function handleSkill(event){
+        const { value, checked} = event.target;
+
+        if(checked){
+            setSkills(pre => [...pre, value])
+        }else{
+            setSkills(pre => {
+                return [ ...pre.filter(skill => skill !== value)]
+            })
+        }
+
+    }
+    // console.log(skills)
+
+    const handleApplied = (e) =>{
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const age = form.age.value;
+        const img = user?.photoURL;
+        const available_week = form.available_week.value;
+        const available_day = form.available_day.value;
+
+        // img upload
+
+        const appliedUser = {
+            name,
+            email,
+            age,
+            img,
+            available_day,
+            available_week,
+            skills
+        }
+        // console.log(appliedUser)
+
+        // send backend to applied
+        publicAxios.patch(`/beTrainer/${user.email}`,appliedUser)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                toast.success("Request Submitted")
+            }
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+
     return (
         <div className='py-10'>
             <div className='max-w-7xl mx-auto'>
                 <TitleSection title={"Become A Trainer"} description={"To became profetional, come to here"} />
                 {/*  */}
-                <form className='w-full md:w-2/3 lg:w-1/2 mx-auto'>
+                <form onSubmit={handleApplied} className='w-full md:w-2/3 lg:w-1/2 mx-auto'>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">What is your full name?</span>
                         </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+                        <input type="text" placeholder="Type your Name" name='name' className="input input-bordered w-full" />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
-                        <input type="email" className="input input-bordered w-full " disabled />
+                        <input type="email" placeholder='Enter your Email' defaultValue={user?.email} name='email' className="input input-bordered w-full " disabled />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Your Age</span>
                         </label>
-                        <input type="number" placeholder="Type your Age" className="input input-bordered w-full" />
+                        <input type="number" name='age' placeholder="Type your Age" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Your Profile Picture</span>
                         </label>
-                        <input type="file" placeholder="Insert your profile pic" className="input input-bordered w-full" />
+                        <input type="file" name='img' placeholder="Insert your profile pic" className="input input-bordered w-full" />
                     </div>
 
                     {/* skills */}
-                    <div className="form-control w-fit">
+                    <div className="form-control justify-start w-fit">
                         <label className="label">
                             <span className="label-text">Your Skills</span>
                         </label>
 
                         <label className="cursor-pointer label">
-                            <input type="checkbox" className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Remember me</span>
+                            <input type="checkbox" value="Adaptability" onChange={handleSkill} className="checkbox checkbox-success mr-3" />
+                            <span className="label-text">Adaptability</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Remember me</span>
+                            <input type="checkbox" value="Exercide Physiology" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <span className="label-text">Exercide Physiology</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Remember me</span>
+                            <input type="checkbox" value="Injury Prevention Knowledge" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <span className="label-text">Injury Prevention Knowledge</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Remember me</span>
+                            <input type="checkbox" value="Time Management" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <span className="label-text">Time Management</span>
                         </label>
                         <label className="cursor-pointer label">
-                            <input type="checkbox" className="checkbox checkbox-success mr-3" />
-                            <span className="label-text">Remember me</span>
+                            <input type="checkbox" value="Patience" onChange={handleSkill}  className="checkbox checkbox-success mr-3" />
+                            <span className="label-text">Patience</span>
                         </label>
                     </div>
 
@@ -67,13 +125,13 @@ const BeTrainer = () => {
                             <label className="label">
                                 <span className="label-text">Available Time in a week</span>
                             </label>
-                            <input type="number" placeholder="Type your Age" className="input input-bordered w-full" />
+                            <input type="number" name='available_week' placeholder="Type your Available Time in a week" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Available Time in a day</span>
                             </label>
-                            <input type="number" placeholder="Type your Age" className="input input-bordered w-full" />
+                            <input type="number" name='available_day' placeholder="Type your Available Time in a day" className="input input-bordered w-full" />
                         </div>
                     </div>
 

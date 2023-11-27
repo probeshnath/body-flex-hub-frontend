@@ -42,7 +42,7 @@ const SignUp = () => {
             const userInfo = {
                 name : data.name,
                 email: data.email,
-                role: "trainer"
+                role: "member"
             }
             
             axiosPublic.post("/users",userInfo)
