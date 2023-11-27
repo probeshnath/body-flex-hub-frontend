@@ -40,10 +40,10 @@ const Navbar = () => {
                             <li><NavLink to="/gallery" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Gallery </NavLink></li>
                             <li><NavLink to="/trainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Trainers </NavLink></li>
                             <li><NavLink to="/classes" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Classes </NavLink></li>
-                            <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
                             <li><NavLink to="/forums" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Forums </NavLink></li>
 
                             {user ? <>
+                             <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
                                 <li><button onClick={logoutUser}> Logout </button></li>
                             </> : <>
                                 <li><NavLink to="/signIn" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Sign In </NavLink></li>
