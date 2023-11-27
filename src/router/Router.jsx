@@ -14,6 +14,11 @@ import Forums from "../pages/Forums/Forums";
 import DashboardLayout from "../Layout/DashboardLayout";
 import MainDashboard from "../pages/Dasboard/MainDashboard";
 import AllSubscribers from "../pages/Dasboard/AllSubscribers/AllSubscribers";
+import AllTrainers from "../pages/Dasboard/AllTrainers/AllTrainers";
+import AppliedTrainers from "../pages/Dasboard/AppliedTrainers/AppliedTrainers";
+import ManageSlots from "../pages/Dasboard/ManageSlots/ManageSlots";
+import ManageMember from "../pages/Dasboard/ManageMember/ManageMember";
+import AddNewForum from "../pages/Dasboard/AddNewForum/AddNewForum";
 
 const router = createBrowserRouter([
     {
@@ -75,7 +80,27 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/allSubscribers",
                 element: <AllSubscribers />
-            }
+            },
+            {
+                path:"/dashboard/allTrainers",
+                element: <AllTrainers />
+            },
+            {
+                path:"/dashboard/appliedTrainers",
+                element: <AppliedTrainers />
+            },
+            {
+                path:"/dashboard/manageSlots",
+                element: <ManageSlots />
+            },
+            {
+                path:"/dashboard/manageMember",
+                element: <ManageMember />
+            },
+            {
+                path:"/dashboard/addNewForum",
+                element: <AddNewForum />
+            },
         ]
     }
 ])

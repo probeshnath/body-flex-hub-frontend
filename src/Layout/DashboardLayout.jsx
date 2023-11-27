@@ -10,7 +10,7 @@ const DashboardLayout = () => {
             {/* sidebar */}
             <div className='col-span-2 bg-slate-400 h-screen'>
                 <ul className='menu font-bold'>
-                    <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
+                    <li><NavLink to="/dashboard"  className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
                     <li><NavLink to="/dashboard/allSubscribers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> All Subscribers </NavLink></li>
                     <li><NavLink to="/dashboard/allTrainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> All Trainers </NavLink></li>
                     <li><NavLink to="/dashboard/appliedTrainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Applied Trainers </NavLink></li>
