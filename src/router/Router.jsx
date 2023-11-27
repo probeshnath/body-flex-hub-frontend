@@ -11,6 +11,8 @@ import BeTrainer from "../pages/TrainerDetals/BeTrainer";
 import TrainerBookedPage from "../pages/TrainerBookedPage/TrainerBookedPage";
 import ClassesPage from "../pages/Classes/ClassesPage";
 import Forums from "../pages/Forums/Forums";
+import DashboardLayout from "../Layout/DashboardLayout";
+import MainDashboard from "../pages/Dasboard/MainDashboard";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +61,17 @@ const router = createBrowserRouter([
     {
         path: "/signUp",
         element: <SignUp />
+    },
+    {
+        path:"dashboard",
+        element: <DashboardLayout></DashboardLayout>,
+        errorElement: <Errorpage />,
+        children:[
+            {
+                index: true,
+                element: <MainDashboard />
+            }
+        ]
     }
 ])
 
