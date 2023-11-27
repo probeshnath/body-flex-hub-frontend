@@ -21,13 +21,14 @@ const Newseltter = () => {
     // console.log(subscribe)
     AxiosPublic.post("/newsletters",subscribe)
     .then(res =>{
-      console.log(res.data)
+      // console.log(res.data)
       if(res.data.insertedId){
         toast.success(`Thank you ${name} for your Subscription 😍`)
       }
     })
     .catch(error =>{
-      console.log(error)
+      // console.log(error)
+      toast.error(error.message)
     })
   }
   return (
