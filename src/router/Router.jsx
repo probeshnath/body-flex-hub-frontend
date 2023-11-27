@@ -19,6 +19,10 @@ import AppliedTrainers from "../pages/Dasboard/AppliedTrainers/AppliedTrainers";
 import ManageSlots from "../pages/Dasboard/ManageSlots/ManageSlots";
 import ManageMember from "../pages/Dasboard/ManageMember/ManageMember";
 import AddNewForum from "../pages/Dasboard/AddNewForum/AddNewForum";
+import AddNewClass from "../pages/Dasboard/AddNewClass/AddNewClass";
+import ActivityLog from "../pages/Dasboard/ActivityLog/ActivityLog";
+import ProfileSettings from "../pages/Dasboard/ProfileSettings/ProfileSettings";
+import RecommendedClasses from "../pages/Dasboard/RecommendedClasses/RecommendedClasses";
 
 const router = createBrowserRouter([
     {
@@ -101,6 +105,24 @@ const router = createBrowserRouter([
                 path:"/dashboard/addNewForum",
                 element: <AddNewForum />
             },
+            ,
+            {
+                path:"/dashboard/addNewClass",
+                element: <AddNewClass />
+            },
+            {
+                path:"/dashboard/activityLog",
+                element: <ActivityLog />
+            },
+            {
+                path:"/dashboard/profileSettings",
+                element: <ProfileSettings />
+            },
+            {
+                path:"/dashboard/recommendedClasses",
+                element: <RecommendedClasses />
+            },
+
         ]
     }
 ])

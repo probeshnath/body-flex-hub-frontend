@@ -20,9 +20,9 @@ const DashboardLayout = () => {
                     <li><NavLink to="/dashboard/addNewForum" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Add New Forum </NavLink></li>
                     <li><NavLink to="/dashboard/addNewClass" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Add New Class </NavLink></li>
 
-                    <li><NavLink to="/dashboard/ActivityLog" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Activity Log</NavLink></li>
+                    <li><NavLink to="/dashboard/activityLog" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Activity Log</NavLink></li>
                     <li><NavLink to="/dashboard/profileSettings" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Profile Settings </NavLink></li>
-                    <li><NavLink to="/dashboard/recommendedClassesPage" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Recommended Classes Page </NavLink></li>
+                    <li><NavLink to="/dashboard/recommendedClasses" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Recommended Classes Page </NavLink></li>
 
 
                 </ul>
