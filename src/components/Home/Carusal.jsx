@@ -24,7 +24,7 @@ const Carusal = () => {
     
 
   return (
-    <>
+    <div className='bg-gray-200'>
       <Swiper
         pagination={pagination}
         modules={[Pagination]}
@@ -59,7 +59,7 @@ const Carusal = () => {
       
        
       </Swiper>
-    </>
+    </div>
   )
 }
 
