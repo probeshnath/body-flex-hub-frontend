@@ -34,7 +34,7 @@ const FeaturedClass = () => {
 
         </div>
         <div className='flex justify-center'>
-         <Link to="classes" > <button className='bg-orange-500 py-1 w-fit px-3 text-white font-semibold rounded-md hover:bg-black mx-auto' >See All Class</button></Link>
+         <Link to="/classes" > <button className='bg-orange-500 py-1 w-fit px-3 text-white font-semibold rounded-md hover:bg-black mx-auto' >See All Class</button></Link>
         </div>
       </div>
     </div>
