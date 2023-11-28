@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import usePublicAxios from '../../hooks/usePublicAxios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ClassDetail = () => {
     const [cls, setCls] = useState(null)
@@ -23,7 +23,7 @@ const ClassDetail = () => {
         <div className='max-w-7xl py-10 mx-auto'>
             <h2 className='text-4xl text-center font-bold text-orange-600 capitalize '>{cls?.data?.title}</h2>
             <p className='text-center text-sm mb-5'>{cls?.data?.date}</p>
-            <img className='w-full h-72 object-cover rounded-md' src={cls?.data?.bodyImg} alt={cls?.data?.title} />
+            <img className='w-full max-h-screen object-cover rounded-md' src={cls?.data?.bodyImg} alt={cls?.data?.title} />
            <h5 className=' pt-3 font-bold text-xl'>Overview the class</h5>
             <p className='text-gray-500 pl-3 mb-5'>{cls?.data?.description}</p>
 
@@ -33,7 +33,7 @@ const ClassDetail = () => {
                 <img className='w-10 h-10 rounded-full' src={cls?.trainerInfo?.img} alt={cls?.trainerInfo?.name} />
                 <div>
                     <h3 className='text-lg font-semibold capitalize text-orange-600'>{cls?.trainerInfo?.name}</h3>
-                    <button className='bg-blue-600 py-1 px-3 text-sm text-white rounded-md'>View Profile</button>
+                   <Link to={`/trainers/${cls?.trainerInfo?._id}`}> <button className='bg-blue-600 py-1 px-3 text-sm text-white rounded-md'>View Profile</button></Link>
                 </div>
             </div>
         </div>

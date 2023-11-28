@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TrainerSlot from "../../components/TrainerDetails/TrainerSlot";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import usePublicAxios from "../../hooks/usePublicAxios";
+import { HiOutlineHashtag } from "react-icons/hi2";
 
 
 const TrainerDetails = () => {
   const [tabIndex, setTabIndex] = useState(0);
+  const [trainer, setTrainer] = useState(null)
+  const publicAxios = usePublicAxios()
+  const { id } = useParams()
+
+  useEffect(() => {
+    publicAxios.get(`/trainers/${id}`)
+      .then(res => {
+        // console.log(res.data)
+        setTrainer(res.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [])
+
+  const myTotalSlot = trainer?.available_day
+  // console.log("myTotalSlot", myTotalSlot)
+  const allSlots = [...Array(myTotalSlot).keys()];
+  // console.log(allSlots)
+
   return (
     <div className="bg-slate-300">
       <Helmet>
@@ -19,16 +41,22 @@ const TrainerDetails = () => {
         <div className="bg-white">
           <img className="w-full h-52 object-top" src="https://i.ibb.co/CM9hFf5/img-4.webp" alt="" />
           <div className="flex gap-5 -mt-20 ml-10">
-            <img className="w-28 border-4 border-white h-28 rounded-full" src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" alt="" />
+            <img className="w-28 border-4 border-white h-28 rounded-full" src={trainer?.img} alt="" />
           </div>
           <div className=" px-10 pt-3">
             <div className="flex items-center gap-1">
-              <h3 className="text-3xl">Trainer Name</h3>
+              <h3 className="text-3xl capitalize">{trainer?.name}</h3>
               <BiSolidBadgeCheck className="mt-3 text-lg text-green-500 " />
             </div>
-            <p className="font-bold text-gray-600 ">3 years Experience</p>
+            <p className="font-bold text-gray-600 ">{trainer?.age} years old</p>
             <p className="text-sm text-gray-600 pb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque nobis ratione praesentium, tempora perspiciatis aliquid. In ratione sit laborum tenetur neque quia delectus quibusdam iusto nobis eaque quis, labore velit mollitia nihil harum?tam, minus, eveniet sunt asperiores suscipit atque iure aperiam provident nobis. Dolores distinctio ducimus culpa. Voluptates ea modi architecto aperiam, commodi voluptate tempora similique voluptas ipsum non.</p>
             {/* badge */}
+            <h2 className="text-3xl">My Skills:</h2>
+            <div className="py-2 px-5">
+              {trainer?.skills?.map((skill,inx) =>(
+                <p key={inx} className="flex items-center font-semibold gap-2"><HiOutlineHashtag /> {skill}</p>
+              ))}
+            </div>
           </div>
         </div>
         {/* body */}
@@ -39,20 +67,28 @@ const TrainerDetails = () => {
           </TabList>
           <TabPanel>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <TrainerSlot />
-              <TrainerSlot />
-              <TrainerSlot />
-              <TrainerSlot />
-              <TrainerSlot />
-              <TrainerSlot />
+
+              {
+                allSlots?.map(solt => <TrainerSlot /> )
+              }
+              
             </div>
           </TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel className="py-5  px-3">
+            {/* about section */}
+            <div className="flex flex-col gap-3">
+              <h3 className="text-2xl bg-white py-1 px-2 rounded-md capitalize">Trainer Name: {trainer?.name}</h3>
+              <h3 className="text-2xl  bg-white py-1 px-2 rounded-md capitalize">Trainer email: {trainer?.email}</h3>
+              <h3 className="text-2xl  bg-white py-1 px-2 rounded-md capitalize">available Time: {trainer?.available_day} Hours</h3>
+              <h3 className="text-2xl  bg-white py-1 px-2 rounded-md capitalize">available Day: {trainer?.available_week} days</h3>
+            </div>
+
+          </TabPanel>
         </Tabs>
 
         {/* be a trainer page */}
         <div className="flex justify-center">
-         <Link to="/beTrainer"> <button className="bg-orange-500 py-1 px-5 text-white font-bold mb-4 rounded-md">Be a Trainer Page</button></Link>
+          <Link to="/beTrainer"> <button className="bg-orange-500 py-1 px-5 text-white font-bold mb-4 rounded-md">Be a Trainer Page</button></Link>
         </div>
       </div>
     </div>
