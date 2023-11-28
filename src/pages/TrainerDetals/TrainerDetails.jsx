@@ -26,10 +26,7 @@ const TrainerDetails = () => {
       })
   }, [])
 
-  // const myTotalSlot = trainer?.available_day
-  // console.log("myTotalSlot", myTotalSlot)
-  // const allSlots = [...Array(myTotalSlot).keys()];
-  // console.log(allSlots)
+
 
   return (
     <div className="bg-slate-300">

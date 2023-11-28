@@ -1,16 +1,15 @@
 import React from 'react'
 
-const Slot = () => {
+const Slot = ({solt}) => {
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title">Card title!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
+            <div className='bg-white px-3 py-5'>
+                <h2 className='text-2xl font-bold'>Title: {solt?.slot_name}</h2>
+                <p>Time: {solt?.cls_time}</p>
+                <p>Price: {solt?.price}</p>
+                <p>Purchaed By:  {solt?.buyer_name || "Available"}</p>
+
+               
             </div>
         </div>
     )
