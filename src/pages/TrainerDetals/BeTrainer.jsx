@@ -35,6 +35,8 @@ const BeTrainer = () => {
         const available_week = form.available_week.value;
         const available_day = form.available_day.value;
 
+
+
         // img upload
 
         const appliedUser = {
@@ -44,9 +46,27 @@ const BeTrainer = () => {
             img,
             available_day,
             available_week,
-            skills
+            skills,
+            slots: []
         }
         // console.log(appliedUser)
+
+        function addSlots(object, numberOfSlots) {
+            // Check if "slots" property already exists, if not, create it as an array
+            object.slots = object.slots || [];
+
+            // Add objects to the "slots" array based on the specified number
+            for (let i = 0; i < numberOfSlots; i++) {
+                object.slots.push({ 
+                    slot_name: `Slot ${i + 1}`,
+                    price: 50,
+                    cls_time: 6 + i
+                 });
+            }
+        }
+
+        addSlots(appliedUser, available_day);
+
 
         // send backend to applied
         publicAxios.patch(`/beTrainer/${user.email}`, appliedUser)

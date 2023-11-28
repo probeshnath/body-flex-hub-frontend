@@ -27,9 +27,9 @@ const SocialLogin = () => {
     .then(res =>{
         if(res.data.insertedId){
             toast.success("User Information Updated !!")
-            navigate("/")
             // navigate(location?.state ? location?.state : "/")
-        }
+          }
+          navigate("/")
     })
 
 

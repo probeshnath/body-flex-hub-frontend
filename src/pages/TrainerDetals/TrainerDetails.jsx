@@ -26,9 +26,9 @@ const TrainerDetails = () => {
       })
   }, [])
 
-  const myTotalSlot = trainer?.available_day
+  // const myTotalSlot = trainer?.available_day
   // console.log("myTotalSlot", myTotalSlot)
-  const allSlots = [...Array(myTotalSlot).keys()];
+  // const allSlots = [...Array(myTotalSlot).keys()];
   // console.log(allSlots)
 
   return (
@@ -36,7 +36,7 @@ const TrainerDetails = () => {
       <Helmet>
         <title>BodyFlex Hub || Trainer Details Page</title>
       </Helmet>
-      <div className="max-w-7xl  mx-auto">
+      <div className="max-w-7xl px-2  mx-auto">
         {/* header */}
         <div className="bg-white">
           <img className="w-full h-52 object-top" src="https://i.ibb.co/CM9hFf5/img-4.webp" alt="" />
@@ -69,7 +69,7 @@ const TrainerDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
               {
-                allSlots?.map(solt => <TrainerSlot /> )
+                trainer?.slots?.map((solt,inx) => <TrainerSlot key={inx} solt={solt} /> )
               }
               
             </div>

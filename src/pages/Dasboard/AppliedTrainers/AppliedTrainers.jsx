@@ -8,6 +8,8 @@ const AppliedTrainers = () => {
     const publicAxios = usePublicAxios();
     const [applied, setApplied] = useState(null)
 
+    
+
 
     // accept or reject
     const appliedHandler = (user) => {

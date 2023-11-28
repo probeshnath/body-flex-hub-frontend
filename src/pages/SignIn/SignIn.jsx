@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SocialLogin from '../../components/shared/SocialLogin'
 import useAuth from '../../hooks/useAuth'
 import { toast } from 'react-toastify'
@@ -9,6 +9,7 @@ const SignIn = () => {
   const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
 
   const {signInUser} = useAuth();
+  const navigate= useNavigate()
 
   //  submit form
   const onSubmit = (data) => {
@@ -17,6 +18,7 @@ const SignIn = () => {
     .then(res =>{
       console.log(res.user)
       toast.success("Login Successfully !!")
+      navigate("/")
     })
     .catch(error =>{
       console.log(error)

@@ -49,14 +49,21 @@ const DashboardLayout = () => {
                                 <li><NavLink to="/dashboard/manageMember" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Manage Member </NavLink></li>
                                 <li><NavLink to="/dashboard/addNewForum" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Add New Forum </NavLink></li>
                                 <li><NavLink to="/dashboard/addNewClass" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Add New Class </NavLink></li>
-                            </>
+                            </> 
                         }
 
-                        {userRole && userRole === "user" || userRole === "applied" &&
+                        {userRole && userRole === "member"  &&
                             <>
                                 <li><NavLink to="/dashboard/activityLog" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Activity Log</NavLink></li>
                                 <li><NavLink to="/dashboard/profileSettings" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Profile Settings </NavLink></li>
-                                <li><NavLink to="/dashboard/recommendedClasses" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Recommended Classes Page </NavLink></li>
+                                <li><NavLink to="/dashboard/recommendedClasses" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Recommended Classes  </NavLink></li>
+                            </>
+                        }
+                         { userRole && userRole === "applied"  &&
+                            <>
+                                <li><NavLink to="/dashboard/activityLog" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Activity Log</NavLink></li>
+                                <li><NavLink to="/dashboard/profileSettings" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Profile Settings </NavLink></li>
+                                <li><NavLink to="/dashboard/recommendedClasses" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Recommended Classes  </NavLink></li>
                             </>
                         }
                     </ul>
