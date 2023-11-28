@@ -24,6 +24,7 @@ import ActivityLog from "../pages/Dasboard/ActivityLog/ActivityLog";
 import ProfileSettings from "../pages/Dasboard/ProfileSettings/ProfileSettings";
 import RecommendedClasses from "../pages/Dasboard/RecommendedClasses/RecommendedClasses";
 import MyProfile from "../pages/MyProfile/MyProfile";
+import ClassDetail from "../pages/Classes/ClassDetail";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: "myProfile",
                 element: <MyProfile />
+            },
+            {
+                path: "classes/:id",
+                element: <ClassDetail />
             }
         ]
     },
