@@ -30,7 +30,7 @@ const ClassesPage = () => {
             allClass?.map(cls => (
               // 
               <div className='bg-white shadow-lg p-3 rounded-md'>
-                <img src={cls.bodyImg} alt={cls.title} className='h-32 object-center rounded-md' />
+                <img src={cls.bodyImg} alt={cls.title} className='h-32 w-full object-center rounded-md' />
                 <h3 className='text-xl font-bold capitalize pt-2 pl-2'>{cls.title}</h3>
                 <Link to={`/classes/${cls._id}`}> <button className='bg-orange-500 p-1 text-sm px-2 w-full font-bold text-white rounded-md hover:bg-black'>Show Detail</button></Link>
               </div>

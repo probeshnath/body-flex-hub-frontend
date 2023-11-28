@@ -49,8 +49,9 @@ const AddNewForum = () => {
   }
   return (
     <div>
+     
       <TitleSection title="Add New Forum" description="Our all post by Admin and Trainers" />
-      <div className='flex flex-col py-10 md:flex-row gap-4'>
+      <div className='flex justify-center items-centerpy-10  gap-4'>
         <div className="bg-white h-fit py-10 px-5 rounded-lg">
           <form onSubmit={handleSubmit(handlePost)}>
             <textarea className="bg-gray-200 p-2 w-full" type="text" {...register("caption", { required: true })} placeholder='Please add Caption' cols="30" rows="10"></textarea>
@@ -63,8 +64,8 @@ const AddNewForum = () => {
         </div>
         <div>
           {/* <h2 className="text-2xl font-bold text-center py-4">Preview the Post</h2> */}
-         <div className='border py-3 shadow-lg bg-white rounded-md px-2'>
-            {/* header */}
+         {/* <div className='border py-3 shadow-lg bg-white rounded-md px-2'>
+         
             <div className='flex items-center pl-5 gap-2'>
               <img className='w-10 h-10 rounded-full' src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" alt="" />
               <div>
@@ -75,11 +76,12 @@ const AddNewForum = () => {
             <p className='pl-5 py-2 text-gray-600 text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ad? Odio sapiente eaque esse labore quasi placeat nihil quo veniam!</p>
             <img src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" alt="" />
             {/* like || dislike */}
-            <div className='flex pt-3 justify-evenly'>
+            {/* <div className='flex pt-3 justify-evenly'>
               <button className='flex items-center gap-2 border px-3 rounded-md font-bold'><BiLike /> Like</button>
               <button className='flex items-center gap-2 border px-3 rounded-md font-bold'><AiOutlineDislike /> DisLike</button>
-            </div>
-          </div> 
+            </div> */}
+          {/* </div>  */}
+
         </div>
       </div>
     </div>

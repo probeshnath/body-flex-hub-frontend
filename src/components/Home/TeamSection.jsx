@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SingleTeamTrainer from './SingleTeamTrainer'
 import TitleSection from '../shared/TitleSection'
+import usePublicAxios from '../../hooks/usePublicAxios'
 
 const TeamSection = () => {
+  const publicAxios = usePublicAxios()
+  const [trainers, setTrainers] = useState()
   return (
     <div className="bg-black py-10" >
       <TitleSection title={"All Trainer"} description={"Our all Best traniers are ready to fit your Body"} />

@@ -25,6 +25,7 @@ import ProfileSettings from "../pages/Dasboard/ProfileSettings/ProfileSettings";
 import RecommendedClasses from "../pages/Dasboard/RecommendedClasses/RecommendedClasses";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ClassDetail from "../pages/Classes/ClassDetail";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
     },
     {
         path:"/dashboard",
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute> ,
         errorElement: <Errorpage />,
         children:[
             {
