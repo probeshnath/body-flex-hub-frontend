@@ -12,11 +12,11 @@ import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import usePublicAxios from '../../hooks/usePublicAxios';
 
-// const getGalleryImg = async () =>{
-//     const res = await fetch("/galleryApi.json")
+// const getGalleryImg = async ({pageParam = 0 }) =>{
+//     const res = await fetch(`http://localhost:5000/gallerys?limit=10&offset=${pageParam}`)
 //     const data = await res.json()
 
-//     return {data}
+//     return {...data, prevOffset: pageParam}
 // }
 // getGalleryImg()
 
@@ -39,9 +39,9 @@ const GalleryPage = () => {
         // const {data, fetchNextPage,hasNextPage} = useInfiniteQuery({
         //     queryKey: ["galleryImg"],
         //     queryFn: getGalleryImg,
-        //     // getNextPageParam: (lastPage) =>{
-        //     //     if()
-        //     // }
+        //     getNextPageParam: (lastPage) =>{
+        //         if(lastPage.prevOffset + 10 > lastPage.)
+        //     }
         // })
 
         // console.log("first",data)

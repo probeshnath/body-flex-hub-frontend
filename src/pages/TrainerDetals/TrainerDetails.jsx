@@ -66,7 +66,7 @@ const TrainerDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
               {
-                trainer?.slots?.map((solt,inx) => <TrainerSlot key={inx} solt={solt} /> )
+                trainer?.slots?.map((solt,inx) => <TrainerSlot trainer={trainer} key={inx} solt={solt} /> )
               }
               
             </div>

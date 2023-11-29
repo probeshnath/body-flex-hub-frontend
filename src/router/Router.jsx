@@ -56,7 +56,7 @@ const router = createBrowserRouter([
                 element: <BeTrainer />
             },
             {
-                path: "trainerBooked",
+                path: "trainerBooked/:id",
                 element: <TrainerBookedPage />
             },
             {
@@ -141,7 +141,7 @@ const router = createBrowserRouter([
                 element: <RecommendedClasses />
             },
             {
-                path:"/dashboard/payment",
+                path:"/dashboard/payment/:id",
                 element: <Payment />
             },
 
