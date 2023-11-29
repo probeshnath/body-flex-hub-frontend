@@ -37,6 +37,7 @@ const AddNewClass = () => {
         // console.log(res.data)
         if(res.data.insertedId){
           toast.success("Class added successfully")
+          reset()
         }
       })
       .catch(error =>{

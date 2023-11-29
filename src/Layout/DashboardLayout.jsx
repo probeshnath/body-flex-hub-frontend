@@ -25,9 +25,9 @@ const DashboardLayout = () => {
     return (
         <div>
             <Navbar />
-            <div className='grid grid-cols-12 '>
+            <div className='grid md:grid-cols-12  '>
                 {/* sidebar */}
-                <div className='col-span-2 bg-slate-400 h-screen'>
+                <div className='md:col-span-2 bg-slate-400 md:h-screen'>
                     <ul className='menu font-bold'>
 
                         <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Dashboard </NavLink></li>
@@ -70,7 +70,8 @@ const DashboardLayout = () => {
                     </ul>
                 </div>
                 {/* children */}
-                <div className="col-span-10 p-5 bg-gray-300">
+                <div className="md:col-span-10 p-5 bg-gray-300">
+
                     <Outlet />
                 </div>
             </div>

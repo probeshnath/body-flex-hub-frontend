@@ -9,7 +9,7 @@ const AllTrainers = () => {
     useEffect(() => {
         publicAxios.get("/trainers")
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setTrainers(res.data)
             })
             .catch(error => {
@@ -27,9 +27,8 @@ const AllTrainers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
+                            <th>Joining Date</th>
+                            <th>Payment Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +39,6 @@ const AllTrainers = () => {
                                     <td>{trainer.name}</td>
                                     <td>{trainer.email}</td>
                                     <td>{trainer.role}</td>
-                                    <td>Canada</td>
                                     <td>12/16/2020</td>
                                     <td>Blue</td>
                                 </tr>

@@ -24,6 +24,7 @@ const Newseltter = () => {
       // console.log(res.data)
       if(res.data.insertedId){
         toast.success(`Thank you ${name} for your Subscription 😍`)
+        form.reset()
       }
     })
     .catch(error =>{
