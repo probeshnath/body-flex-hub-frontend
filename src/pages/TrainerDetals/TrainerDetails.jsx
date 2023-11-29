@@ -31,7 +31,7 @@ const TrainerDetails = () => {
   return (
     <div className="bg-slate-300">
       <Helmet>
-        <title>BodyFlex Hub || Trainer Details Page</title>
+        <title>BodyFlex Hub || {trainer?.name}</title>
       </Helmet>
       <div className="max-w-7xl px-2  mx-auto">
         {/* header */}

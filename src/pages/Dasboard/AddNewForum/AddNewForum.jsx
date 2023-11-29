@@ -5,6 +5,8 @@ import { imageUpload } from "../../../api/uploadImage";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import usePublicAxios from "../../../hooks/usePublicAxios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddNewForum = () => {
   const {user} = useAuth()
@@ -12,6 +14,7 @@ const AddNewForum = () => {
   let date = new Date();
   let currentTime = `${date.getDate()}/ ${date.getMonth()}/ ${date.getFullYear()} `
   // console.log(currentTime)
+  const navigate = useNavigate()
 
 
   const { register, handleSubmit, reset, watch, formState: { errors }, } = useForm()
@@ -37,6 +40,11 @@ const AddNewForum = () => {
       publicAxios.post("/forums",postInfo)
       .then(res =>{
         console.log(res.data)
+        if(res.data.insertedId){
+          toast.success("Add Post successpully")
+          navigate("/forums")
+          reset()
+        }
       })
       .catch((error) =>{
         console.log(error)

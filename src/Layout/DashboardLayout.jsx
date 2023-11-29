@@ -39,6 +39,7 @@ const DashboardLayout = () => {
                                 <li><NavLink to="/dashboard/allTrainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> All Trainers </NavLink></li>
                                 <li><NavLink to="/dashboard/appliedTrainers" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Applied Trainers </NavLink></li>
                                 <li><NavLink to="/dashboard/balance" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}>Balance </NavLink></li>
+                                <li><NavLink to="/dashboard/addNewForum" className={({ isActive }) => isActive ? "active" : "hover:bg-gray-400"}> Add New Forum </NavLink></li>
                             </>
                         }
 

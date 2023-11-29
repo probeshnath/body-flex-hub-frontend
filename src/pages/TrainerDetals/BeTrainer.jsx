@@ -94,7 +94,7 @@ const BeTrainer = () => {
                         <label className="label">
                             <span className="label-text">What is your full name?</span>
                         </label>
-                        <input type="text" placeholder="Type your Name" name='name' className="input input-bordered w-full" />
+                        <input type="text" placeholder="Type your Name" defaultValue={user?.displayName} name='name' className="input input-bordered w-full" />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
@@ -108,12 +108,12 @@ const BeTrainer = () => {
                         </label>
                         <input type="number" name='age' placeholder="Type your Age" className="input input-bordered w-full" />
                     </div>
-                    <div className="form-control w-full">
+                    {/* <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Your Profile Picture</span>
                         </label>
                         <input type="file" name='img' placeholder="Insert your profile pic" className="input input-bordered w-full" />
-                    </div>
+                    </div> */}
 
                     {/* skills */}
                     <div className="form-control  w-fit">

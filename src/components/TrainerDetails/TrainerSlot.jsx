@@ -39,7 +39,7 @@ const TrainerSlot = ({solt,trainer}) => {
 
   return (
     <div className='bg-white px-3 py-5'>
-        <h2>Title: {solt?.slot_name}</h2>
+        <h2 className='text-lg font-semibold text-orange-500'>Title: {solt?.slot_name}</h2>
         <p>Time: {solt?.cls_time}</p>
         <p>Price: {solt?.price}</p>
 

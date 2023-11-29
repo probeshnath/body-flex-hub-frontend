@@ -21,7 +21,7 @@ const AppliedTrainers = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, make trainer!"
         }).then((result) => {
             if (result.isConfirmed) {
                 publicAxios.put(`/addTrainer/${user.email}`)
@@ -30,7 +30,7 @@ const AppliedTrainers = () => {
                         if (res.data.modifiedCount > 0) {
                               Swal.fire({
                                 title: `${user.name} has been added as a Trainer`,
-                                text: "Your file has been deleted.",
+                                text: "make trainer Done",
                                 icon: "success"
                               });
                         }
