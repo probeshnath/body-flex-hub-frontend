@@ -46,7 +46,7 @@ const TrainerDetails = () => {
               <BiSolidBadgeCheck className="mt-3 text-lg text-green-500 " />
             </div>
             <p className="font-bold text-gray-600 ">{trainer?.age} years experience</p>
-            <p className="text-sm text-gray-600 pb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque nobis ratione praesentium, tempora perspiciatis aliquid. In ratione sit laborum tenetur neque quia delectus quibusdam iusto nobis eaque quis, labore velit mollitia nihil harum?tam, minus, eveniet sunt asperiores suscipit atque iure aperiam provident nobis. Dolores distinctio ducimus culpa. Voluptates ea modi architecto aperiam, commodi voluptate tempora similique voluptas ipsum non.</p>
+            <p className="text-sm text-gray-600 pb-2">The Fitness Trainer will instruct or coach groups or individuals in exercise activities, demonstrate techniques and form, observe participants, and explain to them corrective measures to improve their skills.</p>
             {/* badge */}
             <h2 className="text-3xl">My Skills:</h2>
             <div className="py-2 px-5">

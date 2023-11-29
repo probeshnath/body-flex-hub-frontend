@@ -2,8 +2,10 @@ import React from 'react'
 import TitleSection from '../../components/shared/TitleSection'
 import { FaDollarSign } from "react-icons/fa6";
 import { SiVerizon } from "react-icons/si";
+import { Link } from 'react-router-dom';
 
 const TrainerBookedPage = () => {
+
     return (
         <div className='py-10'>
             <div className='max-w-7xl mx-auto'>
@@ -35,7 +37,7 @@ const TrainerBookedPage = () => {
                             <p className='flex items-center gap-2'><SiVerizon className='text-green-600' /> the hysusjsdsd codsk ds sd</p>
                             <p className='flex items-center gap-2'><SiVerizon className='text-green-600' /> the hysusjsdsd codsk ds sd</p>
                         </div>
-                        <button className='bg-orange-500 font-bold py-1  w-full hover:bg-blue-700 hover:text-white rounded-md mt-4'>Join Now</button>
+                       <Link to={"/dashboard/payment"}> <button className='bg-orange-500 font-bold py-1  w-full hover:bg-blue-700 hover:text-white rounded-md mt-4'>Join Now</button></Link>
                     </div>
                     {/* gold pace */}
                     <div className="border-2 rounded-md px-3 py-4">

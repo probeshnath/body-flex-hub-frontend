@@ -26,6 +26,8 @@ import RecommendedClasses from "../pages/Dasboard/RecommendedClasses/Recommended
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ClassDetail from "../pages/Classes/ClassDetail";
 import PrivateRoute from "./PrivateRoute";
+import Balance from "../pages/Dasboard/Balance/Balance";
+import Payment from "../pages/Dasboard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -85,6 +87,7 @@ const router = createBrowserRouter([
     },
     {
         path:"/dashboard",
+        // element:<DashboardLayout></DashboardLayout>,
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute> ,
         errorElement: <Errorpage />,
         children:[
@@ -103,6 +106,10 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/appliedTrainers",
                 element: <AppliedTrainers />
+            },
+             {
+                path:"/dashboard/balance",
+                element: <Balance />
             },
             {
                 path:"/dashboard/manageSlots",
@@ -132,6 +139,10 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/recommendedClasses",
                 element: <RecommendedClasses />
+            },
+            {
+                path:"/dashboard/payment",
+                element: <Payment />
             },
 
         ]
