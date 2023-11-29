@@ -1,6 +1,10 @@
 import React from 'react'
 
 const Footer = () => {
+      //  get dynamic year
+      const fullYear = () =>{
+        return new Date().getFullYear()
+    }
     return (
         <footer className="bg-gray-800 text-gray-300">
             <div className='max-w-7xl mx-auto'>
@@ -12,17 +16,17 @@ const Footer = () => {
                     </aside>
                     <nav>
                         <header className="footer-title">Services</header>
-                        <a className="link link-hover">Branding</a>
-                        <a className="link link-hover">Design</a>
-                        <a className="link link-hover">Marketing</a>
-                        <a className="link link-hover">Advertisement</a>
+                        <a className="link link-hover">Fitness Resources</a>
+                        <a className="link link-hover">Wellness Blog</a>
+                        <a className="link link-hover">Trainer Profiles</a>
+                        <a className="link link-hover">Membership Plans</a>
                     </nav>
                     <nav>
                         <header className="footer-title">Company</header>
                         <a className="link link-hover">About us</a>
                         <a className="link link-hover">Contact</a>
-                        <a className="link link-hover">Jobs</a>
-                        <a className="link link-hover">Press kit</a>
+                        <a className="link link-hover">Trainers</a>
+                        <a className="link link-hover">Gourms</a>
                     </nav>
                     <nav>
                         <header className="footer-title">Legal</header>
@@ -33,7 +37,7 @@ const Footer = () => {
                 </div>
                 <div className='border-b border-gray-400'></div>
                 <aside className='text-center  py-2 text-gray-300'>
-                    <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © {fullYear()} - All right reserved by ACME Industries Ltd</p>
                 </aside>
             </div>
         </footer>
