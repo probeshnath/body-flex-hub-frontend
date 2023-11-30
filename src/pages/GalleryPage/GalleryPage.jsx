@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import usePublicAxios from '../../hooks/usePublicAxios';
 
 // const getGalleryImg = async ({pageParam = 0 }) =>{
-//     const res = await fetch(`http://localhost:5000/gallerys?limit=10&offset=${pageParam}`)
+//     const res = await fetch(`https://bodyflex-hub.vercel.app/gallerys?limit=10&offset=${pageParam}`)
 //     const data = await res.json()
 
 //     return {...data, prevOffset: pageParam}
