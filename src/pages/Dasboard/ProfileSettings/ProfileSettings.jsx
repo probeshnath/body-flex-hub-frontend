@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import TitleSection from '../../../components/shared/TitleSection'
 import { Helmet } from 'react-helmet-async'
 import useAuth from '../../../hooks/useAuth'
+import usePublicAxios from '../../../hooks/usePublicAxios'
+import { toast } from 'react-toastify'
 
 const ProfileSettings = () => {
   const { user } = useAuth()
   const [skills, setSkills] = useState([])
+  const publicAxios = usePublicAxios()
 
   // for multiple checkbok
   function handleSkill(event) {
@@ -40,6 +43,17 @@ const ProfileSettings = () => {
       description
     }
     // console.log(userInfo)
+    publicAxios.put(`/user/${user.email}`,userInfo)
+    .then(res =>{
+      console.log(res.data)
+      if(res.data.modifiedCount > 0){
+        toast.success("Update Your Information")
+        form.reset()
+      }
+    })
+    .catch(error =>{
+      console.log(error)
+    })
     
   }
 
