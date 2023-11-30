@@ -5,7 +5,7 @@ const SingleTeamTrainer = ({trainer}) => {
   // console.log(trainer)
   return (
     <div className='bg-slate-100 cursor-pointer group transition ease-in rounded-md overflow-hidden text-center p-2'>
-        <img className='h-[200px] object-cover group-hover:scale-110  w-full' src="https://i.ibb.co/686tyHs/probesh-deb-nath.jpg" alt="" />
+        <img className='h-[200px] object-cover group-hover:scale-110  w-full' src={trainer.img || "https://i.ibb.co/686tyHs/probesh-deb-nath.jpg"} alt="" />
         <div>
           
         </div>
